@@ -323,6 +323,9 @@ graph7.update_layout(
     xaxis = dict(
         title='Year'
     ),
+    yaxis=dict(
+        title=''
+    ),
     legend = dict(
         xanchor='center',
         yanchor='top',
