@@ -19,7 +19,7 @@ This project uses live data from Chainalysis Reactor!
 #
 ## Darknet Market Revenue v. Total Transfers to Darknet Markets, 2011-2020
 '''
-csv1 = pd.read_csv('DNM_csvs/yr_rev_and_no_transfers_r.csv')
+csv1 = pd.read_csv('dnm/yr_rev_and_no_transfers_r.csv')
 df1 = pd.DataFrame(csv1)
 df1_years = df1['year'].tolist()
 dnm_rev = df1['Darknet market revenue'].tolist()
@@ -53,7 +53,7 @@ st.plotly_chart(fig1)
 #
 ## Darknet Market Received Monthly Since 2019
 '''
-csv7 = pd.read_csv('DNM_csvs/dnm_monthly_since_2019.csv')
+csv7 = pd.read_csv('dnm/dnm_monthly_since_2019.csv')
 df7 = pd.DataFrame(csv7)
 received_usd_7 = df7['received_usd'].tolist()
 layout7 = dict(
@@ -73,7 +73,7 @@ st.plotly_chart(fig7)
 #
 ## Monthly darknet market revenue, 2015 - 2020
 '''
-csv2 = pd.read_csv('DNM_csvs/mo_revenue_r_w_wo_Hydra.csv')
+csv2 = pd.read_csv('dnm/mo_revenue_r_w_wo_Hydra.csv')
 df2 = pd.DataFrame(csv2)
 df2_years = df2['month_year'].tolist()
 tot_rev = df2['Total revenue'].tolist()
@@ -115,7 +115,7 @@ st.plotly_chart(fig2)
 #
 ## All darknet markets by share of total market size over time, 2015 - 2020
 '''
-csv3 = pd.read_csv('DNM_csvs/yr_revenue_r_top20_all.csv')
+csv3 = pd.read_csv('dnm/yr_revenue_r_top20_all.csv')
 df3 = pd.DataFrame(csv3)
 df3
 #stacked or filled area plot
@@ -143,7 +143,7 @@ st.plotly_chart(fig3)
 '''
 ### weekly in 2020
 '''
-csv9 = pd.read_csv('DNM_csvs/weekly2020_revenue_r_top20_all.csv')
+csv9 = pd.read_csv('dnm/weekly2020_revenue_r_top20_all.csv')
 df9 = pd.DataFrame(csv9)
 x9 = df9['week_detailed'].tolist()
 y9 = df9.columns.tolist()
@@ -172,7 +172,7 @@ st.plotly_chart(fig9)
 #
 ## Global darknet markets by share of total market size over time, 2015 - 2020
 '''
-csv4 = pd.read_csv('DNM_csvs/yr_revenue_r_top20_global.csv')
+csv4 = pd.read_csv('dnm/yr_revenue_r_top20_global.csv')
 df4 = pd.DataFrame(csv4)
 df4
 #stacked or filled area plot
@@ -200,7 +200,7 @@ st.plotly_chart(fig4)
 '''
 ### weekly in 2020
 '''
-csv10 = pd.read_csv('DNM_csvs/weekly2020_revenue_r_top20_global.csv')
+csv10 = pd.read_csv('dnm/weekly2020_revenue_r_top20_global.csv')
 df10 = pd.DataFrame(csv10)
 x10 = df10['week_detailed'].tolist()
 y10 = df10.columns.tolist()
@@ -228,7 +228,7 @@ st.plotly_chart(fig10)
 #
 ## Top 20 global darknet markets by revenue, 2020
 '''
-csv5 = pd.read_csv('DNM_csvs/2020_revenue_r_top20_global.csv')
+csv5 = pd.read_csv('dnm/2020_revenue_r_top20_global.csv')
 df5 = pd.DataFrame(csv5)
 cols5 = df5.columns.tolist()
 layout5 = dict(
@@ -248,7 +248,7 @@ st.plotly_chart(fig5)
 ## Destination of Funds Leaving Darknet Markets
 '''
 
-csv6 = pd.read_csv('DNM_csvs/yr_destination_top6.csv')
+csv6 = pd.read_csv('dnm/yr_destination_top6.csv')
 df6 = pd.DataFrame(csv6)
 years6 = df6['year'].tolist()
 col6 = df6.columns.tolist()
@@ -277,7 +277,7 @@ fig6 = go.Figure(data=scatters6, layout=layout6)
 st.plotly_chart(fig6)
 st.text("")
 
-#csv6 = pd.read_csv('DNM_csvs/yr_destination_top6.csv')
+#csv6 = pd.read_csv('dnm/yr_destination_top6.csv')
 #df6 = pd.DataFrame(csv6)
 #df6 = df6.transpose()
 #new_header = df6.iloc[0]
@@ -300,7 +300,7 @@ st.text("")
 #
 ## Average lifespan of Darknet Markets in a given year, but are no longer active as of Dec '20
 '''
-csv7 = pd.read_csv('DNM_csvs/yr_avg_lifespan_and_count.csv')
+csv7 = pd.read_csv('dnm/yr_avg_lifespan_and_count.csv')
 df7 = pd.DataFrame(csv7)
 graph7 = px.bar(df7, x='year', y=['Average lifespan among dead markets that started receiving revenue in given year',
                      'Number of dead markets that started receiving revenue in given year'], barmode='group')
@@ -321,7 +321,7 @@ st.text("")
 #
 ## DNM Received Funds by Market Type, Weekly in 2020
 '''
-csv8 = pd.read_csv('DNM_csvs/weekly_origin_2020.csv')
+csv8 = pd.read_csv('dnm/weekly_origin_2020.csv')
 df8 = pd.DataFrame(csv8)
 x8 = df8['week'].tolist()
 y8 = df8.columns.tolist()
@@ -348,7 +348,7 @@ st.plotly_chart(fig8)
 #
 ## Darknet Market-to-Market Sending Exposure
 '''
-csv11 = pd.read_csv('DNM_csvs/dnm_sankey.csv')
+csv11 = pd.read_csv('dnm/dnm_sankey.csv')
 df11 = pd.DataFrame(csv11)
 df11 = df11.drop(df11.columns[0], axis=1)
 #put columns into list, add a space to each string in counterparty name list
