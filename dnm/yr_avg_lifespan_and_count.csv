@@ -1,6 +1,6 @@
-year,Average lifespan among dead markets that started receiving revenue in given year,Number of dead markets that started receiving revenue in given year
+year,"Year Average Lifespan, in Months",Number of Markets
 2016,23,12
-2017,29,10
-2018,17,15
-2019,9,17
-2020,3,16
+2017,28.6,10
+2018,17.26666667,15
+2019,9.411764706,17
+2020,2.625,16

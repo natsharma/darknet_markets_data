@@ -302,21 +302,16 @@ st.text("")
 #
 ## Average lifespan of Darknet Markets in a given year, but are no longer active as of Dec '20
 '''
+st.write('''The graph below shows the **_average lifespan_** among dead markets that started receiving revenue in given year and **_number of dead markets_** that started receiving revenue in given year.''')
 csv7 = pd.read_csv('dnm/yr_avg_lifespan_and_count.csv')
 df7 = pd.DataFrame(csv7)
-graph7 = px.bar(df7, x='year', y=['Average lifespan among dead markets that started receiving revenue in given year',
-                     'Number of dead markets that started receiving revenue in given year'], barmode='group')
+graph7 = px.bar(df7, x='year', y=['Year Average Lifespan, in Months',
+                     'Number of Markets'], barmode='group')
 graph7.update_layout(
     margin=dict(l=20, r=20, t=20, b=20),
     paper_bgcolor="LightSteelBlue",
     xaxis = dict(
         title='Year'
-    ),
-    yaxis = dict(
-        title='Average Lifespan of Markets, in Months'
-    ),
-    yaxis2 = dict(
-        title='Number of Markets'
     ),
     legend = dict(
         xanchor='center',
