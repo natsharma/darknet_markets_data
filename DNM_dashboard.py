@@ -313,7 +313,10 @@ graph7.update_layout(
         title='Year'
     ),
     yaxis = dict(
-        title='Revenue'
+        title='Average Lifespan of Markets, in Months'
+    ),
+    yaxis2 = dict(
+        title='Number of Markets'
     ),
     legend = dict(
         xanchor='center',
