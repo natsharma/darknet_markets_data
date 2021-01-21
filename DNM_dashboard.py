@@ -5,10 +5,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 '''
-# Darknet Markets
-## Crypto Crime in 2020
-
-This project uses live data from Chainalysis Reactor!
+# Darknet Markets: Crypto Crime in 2020
+### Powered by **Chainalysis Reactor**
 #
 
 '''
@@ -146,25 +144,31 @@ st.plotly_chart(fig3)
 st.write(f'''Feel free to **_click_** on the **Darknet Markets** in the key on the right to make changes to the chart!''')
 csv9 = pd.read_csv('dnm/weekly2020_revenue_r_all.csv')
 df9 = pd.DataFrame(csv9)
+#stacked or filled area plot
 x9 = df9['week_detailed'].tolist()
-y9 = df9.columns.tolist()
-y9.pop(0)
-layout9 = dict(
-    xaxis=dict(title='Week',
-              tickangle=-50),
-    yaxis=dict(title='Received USD'),
-    barmode='stack',
-    height=800,
-    width=900
-)
+columns9 = df9.columns.tolist()
+columns9.pop(0)
 data9 = []
-for col in y9:
-    data9.append(go.Bar(
-        name=col,
+for column in columns9:
+    y9 = df9[column].tolist()
+    data9.append(go.Scatter(
+        name = column,
         x=x9,
-        y=df9[col]
+        y=y9,
+        mode='lines',
+        line=dict(width=0.5),
+        stackgroup = 'one'
     ))
-fig9 = go.Figure(data = data9, layout=layout9)
+layout9 = dict(
+    paper_bgcolor='rgb(255,249,240)',
+    xaxis = dict(
+        title='Weekly',
+        tickangle=-50
+    ),
+    width=1000,
+    height=800
+)
+fig9 = go.Figure(data=data9, layout=layout9)
 st.plotly_chart(fig9)
 
 
@@ -204,25 +208,31 @@ st.plotly_chart(fig4)
 st.write(f'''Feel free to **_click_** on the **Darknet Markets** in the key on the right to make changes to the chart!''')
 csv10 = pd.read_csv('dnm/weekly2020_revenue_r_top20.csv')
 df10 = pd.DataFrame(csv10)
+#stacked or filled area plot
 x10 = df10['week_detailed'].tolist()
-y10 = df10.columns.tolist()
-y10.pop(0)
-layout10 = dict(
-    xaxis=dict(title='Week',
-              tickangle=-50),
-    yaxis=dict(title='Received USD'),
-    barmode='stack',
-    height=800,
-    width=1000
-)
+columns10 = df10.columns.tolist()
+columns10.pop(0)
 data10 = []
-for col in y10:
-    data10.append(go.Bar(
-        name=col,
+for column in columns10:
+    y10 = df10[column].tolist()
+    data10.append(go.Scatter(
+        name = column,
         x=x10,
-        y=df10[col]
+        y=y10,
+        mode='lines',
+        line=dict(width=0.5),
+        stackgroup = 'one'
     ))
-fig10 = go.Figure(data = data10, layout=layout10)
+layout10 = dict(
+    paper_bgcolor='rgb(255,249,240)',
+    xaxis = dict(
+        title='Weekly',
+        tickangle=-50
+    ),
+    width=1000,
+    height=800
+)
+fig10 = go.Figure(data=data10, layout=layout10)
 st.plotly_chart(fig10)
 
 
@@ -256,7 +266,7 @@ years6 = df6['year'].tolist()
 col6 = df6.columns.tolist()
 col6.pop(0)
 cats = st.multiselect(
-    "Choose category", list(col6), ["Exchanges", "Darknet markets"]
+    "Choose Category to Add to Chart", list(col6), ["Darknet markets", "P2P exchanges", "Unnamed services"]
 )
 st.write("### Share of all funds sent from darknet markets")
 scatters6 = []
@@ -354,6 +364,7 @@ st.plotly_chart(fig8)
 #
 ## Darknet Market-to-Market Sending Exposure
 '''
+st.write('''The flow diagram below illustrates where the **_Darknet Markets_** are sending funds. If you **hover** your mouse over the diagram, you can see the source and target darknet markets between which the proportional flow of $USD was exchanged.''')
 csv11 = pd.read_csv('dnm/dnm_sankey.csv')
 df11 = pd.DataFrame(csv11)
 df11 = df11.drop(df11.columns[0], axis=1)
@@ -397,7 +408,6 @@ fig11 = go.Figure(data=[go.Sankey(
 
 fig11.update_layout(
     hovermode = 'closest',
-    title="Where Darknet Markets are Sending Funds",
     height = 850,
     width = 900,
     font=dict(size = 12, color = 'black'),
