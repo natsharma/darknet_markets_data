@@ -309,6 +309,12 @@ graph7 = px.bar(df7, x='year', y=['Average lifespan among dead markets that star
 graph7.update_layout(
     margin=dict(l=20, r=20, t=20, b=20),
     paper_bgcolor="LightSteelBlue",
+    xaxis = dict(
+        title='Year'
+    ),
+    yaxis = dict(
+        title='Revenue'
+    ),
     legend = dict(
         xanchor='center',
         yanchor='top',
