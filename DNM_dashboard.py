@@ -25,8 +25,8 @@ df1 = pd.DataFrame(csv1)
 df1_years = df1['year'].tolist()
 dnm_rev = df1['Darknet market revenue'].tolist()
 num_trans = df1['Number of transfers sent to darknet markets'].tolist()
-DNMRev = go.Bar(name='dnm rev', x=df1_years, y=dnm_rev, xaxis='x', yaxis='y1')
-NumTransfers = go.Scatter(name='# transfers', x=df1_years, y=num_trans, xaxis='x', yaxis='y2')
+DNMRev = go.Bar(name='dnm rev', x=df1['year'], y=df1['Darknet market revenue'], xaxis='x', yaxis='y1')
+NumTransfers = go.Scatter(name='# transfers', x=df1['year'], y=num_trans, xaxis='x', yaxis='y2')
 layouts = dict(
     margin=dict(l=40, r=40, t=40, b=40),
     paper_bgcolor='rgb(255,249,240)',
@@ -37,13 +37,13 @@ layouts = dict(
     yaxis=dict(
         title = 'DNM Revenue',
         overlaying='y2',
-        anchor = 'x'
+        anchor = 'x',
+        zeroline = True
     ),
     yaxis2=dict(
         title = '# of Transfers',
         side = 'right',
         anchor = 'x',
-
     ),
 
 )
@@ -56,7 +56,6 @@ st.plotly_chart(fig1)
 '''
 csv7 = pd.read_csv('dnm/dnm_monthly_since_2019.csv')
 df7 = pd.DataFrame(csv7)
-received_usd_7 = df7['received_usd'].tolist()
 layout7 = dict(
     paper_bgcolor='rgb(255,249,240)',
     xaxis=dict(
@@ -241,7 +240,7 @@ layout5 = dict(
     )
 )
 fig5 = go.Figure(data=[
-    go.Bar(name='dnm rev', x=df5['name'], y=df5['2020'], marker=dict(color='orange'))
+    go.Bar(name='dnm rev', x=df5['name'], y=df5['Revenue'], marker=dict(color='orange'))
 ], layout=layout5)
 st.plotly_chart(fig5)
 
