@@ -19,6 +19,7 @@ This project uses live data from Chainalysis Reactor!
 #
 ## Darknet Market Revenue v. Total Transfers to Darknet Markets, 2011-2020
 '''
+st.write(f'''**_Hover_** your mouse over the chart to explore the data''')
 csv1 = pd.read_csv('dnm/yr_rev_and_no_transfers_r.csv')
 df1 = pd.DataFrame(csv1)
 df1_years = df1['year'].tolist()
@@ -141,9 +142,10 @@ layout3 = dict(
 fig3 = go.Figure(data=data, layout=layout3)
 st.plotly_chart(fig3)
 '''
-### weekly in 2020
+### Weekly Darknet Market Revenue in 2020
 '''
-csv9 = pd.read_csv('dnm/weekly2020_revenue_r_top20_all.csv')
+st.write(f'''Feel free to **_click_** on the **Darknet Markets** in the key on the right to make changes to the chart!''')
+csv9 = pd.read_csv('dnm/weekly2020_revenue_r_all.csv')
 df9 = pd.DataFrame(csv9)
 x9 = df9['week_detailed'].tolist()
 y9 = df9.columns.tolist()
@@ -198,9 +200,10 @@ layout4 = dict(
 fig4 = go.Figure(data=data4, layout=layout4)
 st.plotly_chart(fig4)
 '''
-### weekly in 2020
+### Weekly Revenue of the Top 20 Darknet Markets in 2020
 '''
-csv10 = pd.read_csv('dnm/weekly2020_revenue_r_top20_global.csv')
+st.write(f'''Feel free to **_click_** on the **Darknet Markets** in the key on the right to make changes to the chart!''')
+csv10 = pd.read_csv('dnm/weekly2020_revenue_r_top20.csv')
 df10 = pd.DataFrame(csv10)
 x10 = df10['week_detailed'].tolist()
 y10 = df10.columns.tolist()
