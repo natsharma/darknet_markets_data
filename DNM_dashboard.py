@@ -289,25 +289,6 @@ fig6 = go.Figure(data=scatters6, layout=layout6)
 st.plotly_chart(fig6)
 st.text("")
 
-#csv6 = pd.read_csv('dnm/yr_destination_top6.csv')
-#df6 = pd.DataFrame(csv6)
-#df6 = df6.transpose()
-#new_header = df6.iloc[0]
-#df6 = df6[1:]
-#df6.columns = new_header
-#cats = st.multiselect("Choose category", list(df6.index), ["Exchanges", "Darknet markets"])
-#if not cats:
-#    st.error("Please select at least one country.")
-#else:
-#    data = df6.loc[cats]
-#    st.write("### Share of all funds sent from darknet markets", data.sort_index())
-#    data = data.T.reset_index()
-#    data.sort_index()
-#    data5 = pd.melt(data, id_vars=["year"]).rename(columns={"index": "year", "value": "shares"})
-#    chart = (alt.Chart(data5).mark_area(opacity=0.3).encode(x="year:T",y="shares",color="variable:N",))
-#    st.altair_chart(chart, use_container_width=True)
-
-
 '''
 #
 ## Average lifespan of Darknet Markets in a given year, but are no longer active as of Dec '20
