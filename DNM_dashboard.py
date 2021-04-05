@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 
 '''
 # Darknet Markets: Crypto Crime in 2020
-### Powered by **Chainalysis Reactor**
+### Powered by **Reactor**
 #
 
 '''
